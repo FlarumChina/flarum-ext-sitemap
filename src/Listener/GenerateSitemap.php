@@ -51,16 +51,8 @@ class GenerateSitemap
         // Get all discussions
         $discussions = Discussion::all();
 
-        // Get all users
-        $users = User::all();
-
         // Add home
         $sitemap->addItem($url, time(), Sitemap::DAILY, 0.9);
-
-        // Add users
-        foreach ($users as $user) {
-            $sitemap->addItem($url.'/u/'.$user->username, time(), Sitemap::DAILY, 0.5);
-        }
 
         // Get all tags
         if (class_exists('Tag')) {
@@ -78,13 +70,13 @@ class GenerateSitemap
 
             //Add pages
             foreach ($pages as $page) {
-                $sitemap->addItem($url.'/p/'.$page->id.'-'.$page->slug, time(), Sitemap::DAILY, 0.5);
+                $sitemap->addItem($url.'/p/'.$page->id, time(), Sitemap::DAILY, 0.5);
             }
         }
 
         // Add discussions
         foreach ($discussions as $discussion) {
-            $sitemap->addItem($url.'/d/'.$discussion->id.'-'.$discussion->slug, strtotime($discussion->last_time), Sitemap::DAILY, 0.7);
+            $sitemap->addItem($url.'/d/'.$discussion->id, strtotime($discussion->last_time), Sitemap::DAILY, 0.7);
         }
 
         // Write
