@@ -1,5 +1,5 @@
 {
-    "name": "flarumchina/flarum-ext-sitemap",
+    "name": "flarumchina/flarum-ext-sitemap-chinese",
     "description": "Generate a Sitemap for Flarum automatically for Chinese",
     "type": "flarum-extension",
     "keywords": ["sitemap", "generator"],
